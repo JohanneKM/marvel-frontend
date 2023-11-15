@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 const Characters = () => {
   const [data, setData] = useState();
@@ -27,17 +28,19 @@ const Characters = () => {
       <div className="container-characters">
         {data.results.map((character) => {
           return (
-            <div className="one-character" key={character.name}>
-              <img
-                src={`${character.thumbnail.path}/portrait_xlarge.${character.thumbnail.extension}`}
-                alt=""
-              />
+            <Link to="/character/comics" key={character.name}>
+              <div className="one-character">
+                <img
+                  src={`${character.thumbnail.path}/portrait_xlarge.${character.thumbnail.extension}`}
+                  alt=""
+                />
 
-              <div className="one-character-text">
-                <p>{character.name}</p>
-                <p>{character.description}</p>
+                <div className="one-character-text">
+                  <p>{character.name}</p>
+                  <p>{character.description}</p>
+                </div>
               </div>
-            </div>
+            </Link>
           );
         })}
       </div>
