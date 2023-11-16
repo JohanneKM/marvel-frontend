@@ -7,17 +7,19 @@ const Characters = () => {
   const [isLoading, setIsLoading] = useState(true);
 
   const comicsTab = [];
-  const [selectedCharacter, setSelectedCharacter] = useState("");
+  const [selectedCharacter, setSelectedCharacter] = useState(
+    "5fcf91f4d8a2480017b91454"
+  );
 
   // pour la search bar
-  const [search, setSearch] = useState("");
-  console.log(search);
+  const [name, setName] = useState("");
+  console.log("name ==> ", name);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          "https://site--marvel-backend--j7xsyk95scmh.code.run/characters"
+          `https://site--marvel-backend--j7xsyk95scmh.code.run/characters?name=${name}`
         );
         setData(response.data);
         setIsLoading(false);
@@ -26,7 +28,7 @@ const Characters = () => {
       }
     };
     fetchData();
-  }, []);
+  }, [name]);
 
   return isLoading ? (
     <p>Loading...</p>
@@ -35,9 +37,9 @@ const Characters = () => {
       <input
         placeholder="Search"
         type="text"
-        value={search}
+        value={name}
         onChange={(event) => {
-          setSearch(event.target.value);
+          setName(event.target.value);
         }}
       />
       <div className="container-characters">
