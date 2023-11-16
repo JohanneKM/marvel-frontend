@@ -5,11 +5,11 @@ import { Link } from "react-router-dom";
 const Characters = () => {
   const [data, setData] = useState();
   const [isLoading, setIsLoading] = useState(true);
-  const [characterComics, setCharacterComics] = useState([]);
-  // console.log(characterComics);
-  const tabTest = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
-  // console.log(tabTest);
+
   const comicsTab = [];
+  const [selectedCharacter, setSelectedCharacter] = useState(
+    "5fcf91f4d8a2480017b91454"
+  );
 
   useEffect(() => {
     const fetchData = async () => {
@@ -34,16 +34,21 @@ const Characters = () => {
         {data.results.map((character) => {
           return (
             <Link
-              to="/character/comics"
+              to="/characters"
               key={character.name}
               onClick={() => {
+                setSelectedCharacter(character._id);
+                console.log(selectedCharacter);
                 for (let i = 0; i < character.comics.length; i++) {
                   comicsTab.push(character.comics[i]);
                 }
 
                 // console.log(comicsTab);
               }}
-              state={{ comicsTab: comicsTab }}
+              state={{
+                comicsTab: comicsTab,
+                selectedCharacter: selectedCharacter,
+              }}
             >
               <div className="one-character">
                 <img
@@ -54,6 +59,7 @@ const Characters = () => {
                 <div className="one-character-text">
                   <p>{character.name}</p>
                   <p>{character.description}</p>
+                  <p>{character._id}</p>
                 </div>
               </div>
 

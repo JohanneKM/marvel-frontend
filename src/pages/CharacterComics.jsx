@@ -1,12 +1,48 @@
 import { useLocation } from "react-router-dom";
+import axios from "axios";
+import { useEffect, useState } from "react";
 
 const CharacterComics = () => {
   const location = useLocation();
-  const { comicsTab } = location.state;
-  console.log(comicsTab);
-  return (
+  const { comicsTab, selectedCharacter } = location.state;
+  // console.log(comicsTab);
+  console.log(selectedCharacter);
+
+  const [data, setData] = useState();
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get(
+          `https://site--marvel-backend--j7xsyk95scmh.code.run/comics/${selectedCharacter}`
+        );
+        // console.log(response.data);
+        setData(response.data);
+
+        setIsLoading(false);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    fetchData();
+  }, []);
+
+  return isLoading ? (
+    <p>Loading...</p>
+  ) : (
     <div className="container">
       <p>Page CharacterComics</p>
+
+      {comicsTab.map((elem) => {
+        return <p key={elem}>{elem}</p>;
+      })}
+
+      <p> {selectedCharacter}</p>
+
+      {data.comics.map((comic, index) => {
+        return <p key={index}>{comic.title}</p>;
+      })}
     </div>
   );
 };
