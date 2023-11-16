@@ -7,6 +7,9 @@ const Comics = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [title, setTitle] = useState("");
 
+  const [tabComics, setTabComics] = useState();
+  console.log(tabComics);
+
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -15,6 +18,22 @@ const Comics = () => {
         );
         setData(response.data);
         setIsLoading(false);
+        setTabComics(response.data.results);
+
+        // to sort the result
+        // let sortedComicsTab = tabComics.sort((a, b) => {
+        //   const titleA = a.title.toUpperCase();
+        //   const titleB = b.title.toUpperCase();
+        //   if (titleA > titleB) {
+        //     return -1;
+        //   }
+        //   if (titleA < titleB) {
+        //     return 1;
+        //   }
+        //   if (titleA === titleB) {
+        //     return 0;
+        //   }
+        // });
       } catch (error) {
         console.log(error);
       }
@@ -43,6 +62,7 @@ const Comics = () => {
                 alt="comic-picture"
               />
               <div className="one-character-text">
+                {/* <p> {tabComics[0].title}</p> */}
                 <p>{comic.title}</p>
                 <p>{comic.description}</p>
               </div>
