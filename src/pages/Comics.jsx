@@ -1,9 +1,10 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 const Comics = () => {
   const [data, setData] = useState();
-  const [isLoading, setIsLoading] = useState();
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -11,19 +12,34 @@ const Comics = () => {
         const response = await axios.get(
           "https://site--marvel-backend--j7xsyk95scmh.code.run/comics"
         );
-        console.log(response.data);
-
         setData(response.data);
         setIsLoading(false);
       } catch (error) {
         console.log(error);
       }
     };
-
     fetchData();
   }, []);
 
-  return isLoading ? <p>Loading...</p> : <p>Coucou c'est Johanne</p>;
+  return isLoading ? (
+    <p>Loading...</p>
+  ) : (
+    <div className="container">
+      <div className="container-characters">
+        {data.results.map((comic) => {
+          return (
+            <Link to="/character/comics" key={comic._id}>
+              <div className="one-character">
+                <div className="one-character-text">
+                  <p>{comic.title}</p>
+                </div>
+              </div>
+            </Link>
+          );
+        })}
+      </div>
+    </div>
+  );
 };
 
 export default Comics;
