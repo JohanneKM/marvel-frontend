@@ -3,6 +3,9 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 const Characters = () => {
+  const [search, setSearch] = useState("");
+  console.log(search);
+
   const [data, setData] = useState();
   const [isLoading, setIsLoading] = useState(true);
 
@@ -30,6 +33,14 @@ const Characters = () => {
     <p>Loading...</p>
   ) : (
     <div className="container">
+      <input
+        placeholder="Search"
+        type="text"
+        value={search}
+        onChange={(event) => {
+          setSearch(event.target.value);
+        }}
+      />
       <div className="container-characters">
         {data.results.map((character) => {
           return (
