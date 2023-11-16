@@ -34,7 +34,7 @@ const Characters = () => {
         {data.results.map((character) => {
           return (
             <Link
-              to="/characters"
+              to="/comics/:id"
               key={character.name}
               onClick={() => {
                 setSelectedCharacter(character._id);
