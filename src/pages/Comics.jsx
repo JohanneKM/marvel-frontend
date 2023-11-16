@@ -5,12 +5,13 @@ import { Link } from "react-router-dom";
 const Comics = () => {
   const [data, setData] = useState();
   const [isLoading, setIsLoading] = useState(true);
+  const [title, setTitle] = useState("");
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          "https://site--marvel-backend--j7xsyk95scmh.code.run/comics"
+          `https://site--marvel-backend--j7xsyk95scmh.code.run/comics?title=${title}`
         );
         setData(response.data);
         setIsLoading(false);
@@ -19,12 +20,20 @@ const Comics = () => {
       }
     };
     fetchData();
-  }, []);
+  }, [title]);
 
   return isLoading ? (
     <p>Loading...</p>
   ) : (
     <div className="container">
+      <input
+        placeholder="Search"
+        type="text"
+        value={title}
+        onChange={(event) => {
+          setTitle(event.target.value);
+        }}
+      />
       <div className="container-characters">
         {data.results.map((comic) => {
           return (
