@@ -3,16 +3,15 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 const Characters = () => {
-  const [search, setSearch] = useState("");
-  console.log(search);
-
   const [data, setData] = useState();
   const [isLoading, setIsLoading] = useState(true);
 
   const comicsTab = [];
-  const [selectedCharacter, setSelectedCharacter] = useState(
-    "5fcf91f4d8a2480017b91454"
-  );
+  const [selectedCharacter, setSelectedCharacter] = useState("");
+
+  // pour la search bar
+  const [search, setSearch] = useState("");
+  console.log(search);
 
   useEffect(() => {
     const fetchData = async () => {
