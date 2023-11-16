@@ -28,13 +28,16 @@ const Comics = () => {
       <div className="container-characters">
         {data.results.map((comic) => {
           return (
-            <Link to="/character/comics" key={comic._id}>
-              <div className="one-character">
-                <div className="one-character-text">
-                  <p>{comic.title}</p>
-                </div>
+            <div key={comic._id} className="one-character">
+              <img
+                src={`${comic.thumbnail.path}/portrait_xlarge.${comic.thumbnail.extension}`}
+                alt="comic-picture"
+              />
+              <div className="one-character-text">
+                <p>{comic.title}</p>
+                <p>{comic.description}</p>
               </div>
-            </Link>
+            </div>
           );
         })}
       </div>
