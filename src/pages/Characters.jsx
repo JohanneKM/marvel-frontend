@@ -61,43 +61,46 @@ const Characters = () => {
       <div className="container-characters">
         {data.results.map((character) => {
           return (
-            <Link
-              to="/comics/:id"
-              key={character._id}
-              onClick={() => {
-                console.log(character._id);
-                // setSelectedCharacter(character._id);
-                // console.log(selectedCharacter);
-                for (let i = 0; i < character.comics.length; i++) {
-                  comicsTab.push(character.comics[i]);
-                }
+            <div className="card">
+              <Link
+                to="/comics/:id"
+                key={character._id}
+                onClick={() => {
+                  console.log(character._id);
+                  // setSelectedCharacter(character._id);
+                  // console.log(selectedCharacter);
+                  for (let i = 0; i < character.comics.length; i++) {
+                    comicsTab.push(character.comics[i]);
+                  }
 
-                // console.log(comicsTab);
-              }}
-              state={{
-                comicsTab: comicsTab,
-                characterID: character._id,
-              }}
-            >
-              <div className="one-character">
-                <img
-                  src={`${character.thumbnail.path}/portrait_xlarge.${character.thumbnail.extension}`}
-                  alt=""
-                />
+                  // console.log(comicsTab);
+                }}
+                state={{
+                  comicsTab: comicsTab,
+                  characterID: character._id,
+                }}
+              >
+                <div className="one-character">
+                  <img
+                    src={`${character.thumbnail.path}/portrait_xlarge.${character.thumbnail.extension}`}
+                    alt=""
+                  />
 
-                <div className="one-character-text">
-                  <p>{character.name}</p>
-                  <p>{character.description}</p>
-                  <p>{character._id}</p>
+                  <div className="one-character-text">
+                    <p>{character.name}</p>
+                    <p>{character.description}</p>
+                  </div>
                 </div>
-              </div>
+              </Link>
 
-              <div className="test">
-                {character.comics.map((comic, index) => {
-                  return <p key={index}>{comic}</p>;
-                })}
-              </div>
-            </Link>
+              <input type="checkbox" />
+            </div>
+
+            // {/* <div className="test">
+            //   {character.comics.map((comic, index) => {
+            //     return <p key={index}>{comic}</p>;
+            //   })}
+            // </div> */}
           );
         })}
       </div>
