@@ -19,21 +19,6 @@ const Comics = () => {
         setData(response.data);
         setIsLoading(false);
         setTabComics(response.data.results);
-
-        // to sort the result
-        // let sortedComicsTab = tabComics.sort((a, b) => {
-        //   const titleA = a.title.toUpperCase();
-        //   const titleB = b.title.toUpperCase();
-        //   if (titleA > titleB) {
-        //     return -1;
-        //   }
-        //   if (titleA < titleB) {
-        //     return 1;
-        //   }
-        //   if (titleA === titleB) {
-        //     return 0;
-        //   }
-        // });
       } catch (error) {
         console.log(error);
       }

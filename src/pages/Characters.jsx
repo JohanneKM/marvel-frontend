@@ -11,15 +11,21 @@ const Characters = () => {
     "5fcf91f4d8a2480017b91454"
   );
 
-  // pour la search bar
+  // for the search bar
   const [name, setName] = useState("");
   console.log("name ==> ", name);
+
+  // for the pagination
+  const [currentPage, setCurrentPage] = useState(5);
+  const [resultsPerPage] = useState(100);
+  const skip = (currentPage - 1) * resultsPerPage;
+  console.log("skip ==>", skip);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          `https://site--marvel-backend--j7xsyk95scmh.code.run/characters?name=${name}`
+          `https://site--marvel-backend--j7xsyk95scmh.code.run/characters?name=${name}&skip=${skip}`
         );
         setData(response.data);
         setIsLoading(false);
