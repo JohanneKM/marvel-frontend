@@ -1,9 +1,6 @@
 import { useState } from "react";
 
-const Pagination = () => {
-  const [currentPage, setCurrentPage] = useState(5);
-  const [resultsPerPage] = useState(100);
-  const nbPages = Math.ceil(1493 / resultsPerPage);
+const Pagination = ({ nbPages, currentPage, setCurrentPage }) => {
   const pageNumbers = [...Array(16).keys()].slice(1);
 
   const goToNextPage = () => {
