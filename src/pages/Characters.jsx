@@ -27,15 +27,11 @@ const Characters = () => {
   console.log("skip ==>", skip);
 
   // for the favourites
+
+  const [favourites, setFavourites] = useState([]);
   const [isFavourite, setIsFavourite] = useState(false);
-  const handleChangeFavourite = (event) => {
-    if (event.target.checked) {
-      console.log("Is checked");
-    } else {
-      console.log("Is not checked");
-    }
-    setIsFavourite((current) => !current);
-  };
+  const saved = localStorage.getItem("testFavourite");
+  console.log(saved);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -104,7 +100,18 @@ const Characters = () => {
                 </div>
               </Link>
 
-              <input onChange={handleChangeFavourite} type="checkbox" />
+              <input
+                onChange={(event) => {
+                  if (event.target.checked) {
+                    console.log("Is checked");
+                  } else {
+                    console.log("Is not checked");
+                  }
+                  setIsFavourite((current) => !current);
+                  localStorage.setItem("testFavourite", character.name);
+                }}
+                type="checkbox"
+              />
             </div>
 
             // {/* <div className="test">
