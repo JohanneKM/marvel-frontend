@@ -26,6 +26,17 @@ const Characters = () => {
   const skip = (currentPage - 1) * resultsPerPage;
   console.log("skip ==>", skip);
 
+  // for the favourites
+  const [isFavourite, setIsFavourite] = useState(false);
+  const handleChangeFavourite = (event) => {
+    if (event.target.checked) {
+      console.log("Is checked");
+    } else {
+      console.log("Is not checked");
+    }
+    setIsFavourite((current) => !current);
+  };
+
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -93,7 +104,7 @@ const Characters = () => {
                 </div>
               </Link>
 
-              <input type="checkbox" />
+              <input onChange={handleChangeFavourite} type="checkbox" />
             </div>
 
             // {/* <div className="test">
