@@ -4,9 +4,9 @@ import { useEffect, useState } from "react";
 
 const CharacterComics = () => {
   const location = useLocation();
-  const { comicsTab, selectedCharacter } = location.state;
+  const { comicsTab, characterID } = location.state;
   // console.log(comicsTab);
-  console.log(selectedCharacter);
+  console.log(characterID);
 
   const [data, setData] = useState();
   const [isLoading, setIsLoading] = useState(true);
@@ -15,7 +15,7 @@ const CharacterComics = () => {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          `https://site--marvel-backend--j7xsyk95scmh.code.run/comics/${selectedCharacter}`
+          `https://site--marvel-backend--j7xsyk95scmh.code.run/comics/${characterID}`
         );
         // console.log(response.data);
         setData(response.data);
@@ -38,7 +38,7 @@ const CharacterComics = () => {
         return <p key={elem}>{elem}</p>;
       })}
 
-      <p> {selectedCharacter}</p>
+      <p> {characterID}</p>
 
       {data.comics.map((comic, index) => {
         return <p key={index}>{comic.title}</p>;

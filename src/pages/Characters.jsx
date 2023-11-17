@@ -2,6 +2,8 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
+import Pagination from "../components/Pagination";
+
 const Characters = () => {
   const [data, setData] = useState();
   const [isLoading, setIsLoading] = useState(true);
@@ -16,8 +18,11 @@ const Characters = () => {
   console.log("name ==> ", name);
 
   // for the pagination
-  const [currentPage, setCurrentPage] = useState(5);
+  const [currentPage, setCurrentPage] = useState(1);
+  console.log(currentPage);
   const [resultsPerPage] = useState(100);
+  const nbPages = Math.ceil(1493 / resultsPerPage);
+  console.log("nbPages ===>", nbPages);
   const skip = (currentPage - 1) * resultsPerPage;
   console.log("skip ==>", skip);
 
@@ -34,7 +39,7 @@ const Characters = () => {
       }
     };
     fetchData();
-  }, [name]);
+  }, [name, currentPage, selectedCharacter]);
 
   return isLoading ? (
     <p>Loading...</p>
@@ -48,15 +53,21 @@ const Characters = () => {
           setName(event.target.value);
         }}
       />
+      <Pagination
+        nbPages={nbPages}
+        currentPage={currentPage}
+        setCurrentPage={setCurrentPage}
+      />
       <div className="container-characters">
         {data.results.map((character) => {
           return (
             <Link
               to="/comics/:id"
-              key={character.name}
+              key={character._id}
               onClick={() => {
-                setSelectedCharacter(character._id);
-                console.log(selectedCharacter);
+                console.log(character._id);
+                // setSelectedCharacter(character._id);
+                // console.log(selectedCharacter);
                 for (let i = 0; i < character.comics.length; i++) {
                   comicsTab.push(character.comics[i]);
                 }
@@ -65,7 +76,7 @@ const Characters = () => {
               }}
               state={{
                 comicsTab: comicsTab,
-                selectedCharacter: selectedCharacter,
+                characterID: character._id,
               }}
             >
               <div className="one-character">
