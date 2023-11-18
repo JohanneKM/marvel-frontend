@@ -183,11 +183,11 @@ h2 {
 .one-characterComics {
   border: blue solid 1px;
   display: flex;
-  width: calc(100% / 3 - 45px);
+  width: 168px;
   gap: 15px;
-  background-color: lightcoral;
   overflow: hidden;
   flex-shrink: 0;
+  flex-direction: column;
 
   /* display: flex;
   flex-direction: column;
@@ -199,45 +199,48 @@ h2 {
   width: 200px; */
 }
 
-/* 
 .one-characterComics img {
+  width: 168px;
   height: 75%;
-} */
+  object-fit: cover;
+}
 
-/* .title {
-  display: flex;
-  height: 25%;
-} */
+.title {
+  padding: 10px;
+}
 
-.one-characterComics p {
+.title p {
+  color: white;
+}
+
+/* .one-characterComics p {
   /* overflow: scroll;
   padding-left: 10px; */
 
-  /* border: blue solid 1px; */
-  /* padding: 5px;
+/* border: blue solid 1px; */
+/* padding: 5px;
   text-align: center;
-  color: white; */
-}
+  color: white;
+} */
 
 h1 {
-  /* position: absolute;
-  top: 200px; */
   color: white;
-  /* border: orange 1px solid; */
+  border: orange 1px solid;
   flex: 1;
 }
 
 h2 {
   /* border: brown solid 1px; */
-  flex: 2;
+  flex: 1;
   color: white;
+  margin-bottom: 20px;
 }
 .comics {
   display: flex;
   gap: 20px;
   overflow: scroll hidden;
   border: yellowgreen solid 1px;
-  flex: 5;
+  flex: 4;
 }
 
 /* ---- PAGINATION ----- */
@@ -297,27 +300,32 @@ a {
 /* ---- SEARCH BAR ----- */
 
 .searchbar {
+  border: red solid 1px;
   width: 300px;
   height: 40px;
   border-radius: 60px;
   margin-left: 50px;
   margin-top: 20px;
   margin-bottom: 10px;
-  padding: 10px;
+
   background-color: #353e59;
   display: flex;
+  align-items: center;
 }
 
 .searchbar input {
   background-color: transparent;
-  flex: 1;
   border: 0;
   outline: none;
   color: white;
+  overflow: visible;
+  flex: 1;
+  padding-left: 15px;
 }
 
 ::placeholder {
   color: white;
+  opacity: 50%;
 }
 
 .searchbar-section {
@@ -336,13 +344,14 @@ a {
 
 .container-comics {
   border: blue solid 1px;
+  background-color: black;
   display: flex;
   flex-wrap: wrap;
   padding: 20px;
   justify-content: center;
   align-items: center;
   gap: 20px;
-  position: absolute;
+
   top: 400px;
   width: 1200px;
 }

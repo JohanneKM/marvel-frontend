@@ -54,13 +54,13 @@ const CharacterComics = () => {
             {data.comics.map((comic, index) => {
               return (
                 <div key={index} className="one-characterComics">
-                  {/* <img
-                    src={`${comic.thumbnail.path}/portrait_incredible.${comic.thumbnail.extension}`}
+                  <img
+                    src={`${comic.thumbnail.path}/portrait_fantastic.${comic.thumbnail.extension}`}
                     alt="comic"
-                  /> */}
-                  {/* <div className="title">
-                      <p>{comic.title}</p>
-                    </div> */}
+                  />
+                  <div className="title">
+                    <p>{comic.title}</p>
+                  </div>
                 </div>
               );
             })}

@@ -23,7 +23,12 @@ const Characters = () => {
   const [resultsPerPage] = useState(100);
   const nbPages = Math.ceil(1493 / resultsPerPage);
   console.log("nbPages ===>", nbPages);
-  const skip = (currentPage - 1) * resultsPerPage;
+  let skip = 0;
+  if (name.length !== 0) {
+    skip = 0;
+  } else {
+    skip = (currentPage - 1) * resultsPerPage;
+  }
   console.log("skip ==>", skip);
 
   // for the favourites
@@ -129,7 +134,7 @@ const Characters = () => {
         <div className="searchbar">
           <input
             className="search-bar"
-            placeholder="Search for your favourite character"
+            placeholder="Search your favourite character"
             type="text"
             value={name}
             onChange={(event) => {
@@ -138,11 +143,7 @@ const Characters = () => {
           />
         </div>
       </section>
-      <Pagination
-        nbPages={nbPages}
-        currentPage={currentPage}
-        setCurrentPage={setCurrentPage}
-      />
+
       <div className="container-characters">
         {data.results.map((character) => {
           return (
@@ -203,6 +204,12 @@ const Characters = () => {
           );
         })}
       </div>
+
+      <Pagination
+        nbPages={nbPages}
+        currentPage={currentPage}
+        setCurrentPage={setCurrentPage}
+      />
     </div>
   );
 };
