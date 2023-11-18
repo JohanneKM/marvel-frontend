@@ -78,57 +78,41 @@ const Characters = () => {
     <p>Loading...</p>
   ) : (
     <div className="container">
-      {/* <img
-        className="background-image"
-        src="../src/assets/img/background.png"
+      <img
+        className="img-background"
+        src="../src/assets/img/background.jpg"
         alt="background"
       />
       <img
-        className="background-image"
-        src="../src/assets/img/background.png"
+        className="img-background"
+        src="../src/assets/img/background.jpg"
         alt="background"
       />
       <img
-        className="background-image"
-        src="../src/assets/img/background.png"
+        className="img-background"
+        src="../src/assets/img/background.jpg"
         alt="background"
       />
-
       <img
-        className="background-image"
-        src="../src/assets/img/background.png"
+        className="img-background"
+        src="../src/assets/img/background.jpg"
         alt="background"
       />
-
       <img
-        className="background-image"
-        src="../src/assets/img/background.png"
+        className="img-background"
+        src="../src/assets/img/background.jpg"
         alt="background"
       />
-
       <img
-        className="background-image"
-        src="../src/assets/img/background.png"
+        className="img-background"
+        src="../src/assets/img/background.jpg"
         alt="background"
       />
-
       <img
-        className="background-image"
-        src="../src/assets/img/background.png"
+        className="img-background"
+        src="../src/assets/img/background.jpg"
         alt="background"
       />
-
-      <img
-        className="background-image"
-        src="../src/assets/img/background.png"
-        alt="background"
-      />
-
-      <img
-        className="background-image"
-        src="../src/assets/img/background.png"
-        alt="background"
-      /> */}
 
       <section className="searchbar-section">
         <div className="searchbar">
@@ -182,7 +166,7 @@ const Characters = () => {
                 </div>
               </Link>
 
-              <input
+              {/* <input
                 onClick={(event) => {
                   if (event.target.checked) {
                     console.log("Is checked");
@@ -193,7 +177,7 @@ const Characters = () => {
                   localStorage.setItem("testFavourite", character.name);
                 }}
                 type="checkbox"
-              />
+              /> */}
             </div>
 
             // {/* <div className="test">
