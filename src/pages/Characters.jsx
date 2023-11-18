@@ -33,6 +33,27 @@ const Characters = () => {
   const saved = localStorage.getItem("testFavourite");
   console.log(saved);
 
+  const addFav = (character) => {
+    let array = favourites;
+    let addArray = true;
+    array.map((elem, index) => {
+      if (elem === character) {
+        array.splice(index, 1);
+        addArray = false;
+      }
+    });
+    if (addArray) {
+      array.push(character);
+    }
+
+    setFavourite([...array]);
+  };
+
+  // for the description length
+  const addEllipsis = (text, maxLength) => {
+    return text.length > maxLength ? text.slice(0, maxLength) + "..." : text;
+  };
+
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -94,14 +115,14 @@ const Characters = () => {
                   />
 
                   <div className="one-character-text">
-                    <p>{character.name}</p>
-                    <p>{character.description}</p>
+                    <h2>{character.name}</h2>
+                    <p> {addEllipsis(character.description, 50)}</p>
                   </div>
                 </div>
               </Link>
 
               <input
-                onChange={(event) => {
+                onClick={(event) => {
                   if (event.target.checked) {
                     console.log("Is checked");
                   } else {

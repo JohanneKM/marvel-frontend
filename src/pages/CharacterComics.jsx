@@ -32,17 +32,33 @@ const CharacterComics = () => {
     <p>Loading...</p>
   ) : (
     <div className="container">
-      <p>Page CharacterComics</p>
-
-      {comicsTab.map((elem) => {
+      <div className="flex-parent">
+        {/* {comicsTab.map((elem) => {
         return <p key={elem}>{elem}</p>;
-      })}
+      })} */}
+        <div className="characterComics-left">
+          <img
+            src={`${data.thumbnail.path}/portrait_uncanny.${data.thumbnail.extension}`}
+            alt="character"
+          />
+        </div>
 
-      <p> {characterID}</p>
-
-      {data.comics.map((comic, index) => {
-        return <p key={index}>{comic.title}</p>;
-      })}
+        <div className="characterComics-right">
+          {data.comics.map((comic, index) => {
+            return (
+              <div key={index} className="one-characterComics">
+                <img
+                  src={`${comic.thumbnail.path}/portrait_incredible.${comic.thumbnail.extension}`}
+                  alt="comic"
+                />
+                <div className="title">
+                  <p>{comic.title}</p>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      </div>
     </div>
   );
 };
