@@ -11,6 +11,11 @@ const Comics = () => {
   const [tabComics, setTabComics] = useState();
   console.log(tabComics);
 
+  // for the description length
+  const addEllipsis = (text, maxLength) => {
+    return text.length > maxLength ? text.slice(0, maxLength) + "..." : text;
+  };
+
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -31,6 +36,53 @@ const Comics = () => {
     <p>Loading...</p>
   ) : (
     <div className="container">
+      {/* <img
+        className="background-image"
+        src="../src/assets/img/background.png"
+        alt="background"
+      />
+
+      <img
+        className="background-image"
+        src="../src/assets/img/background.png"
+        alt="background"
+      />
+      <img
+        className="background-image"
+        src="../src/assets/img/background.png"
+        alt="background"
+      />
+      <img
+        className="background-image"
+        src="../src/assets/img/background.png"
+        alt="background"
+      />
+      <img
+        className="background-image"
+        src="../src/assets/img/background.png"
+        alt="background"
+      />
+      <img
+        className="background-image"
+        src="../src/assets/img/background.png"
+        alt="background"
+      />
+      <img
+        className="background-image"
+        src="../src/assets/img/background.png"
+        alt="background"
+      />
+      <img
+        className="background-image"
+        src="../src/assets/img/background.png"
+        alt="background"
+      />
+      <img
+        className="background-image"
+        src="../src/assets/img/background.png"
+        alt="background"
+      />
+
       <input
         placeholder="Search"
         type="text"
@@ -38,9 +90,9 @@ const Comics = () => {
         onChange={(event) => {
           setTitle(event.target.value);
         }}
-      />
+      /> */}
 
-      <div className="container-characters">
+      <div className="container-comics">
         {data.results.map((comic) => {
           return (
             <div key={comic._id} className="one-character">
@@ -50,8 +102,10 @@ const Comics = () => {
               />
               <div className="one-character-text">
                 {/* <p> {tabComics[0].title}</p> */}
-                <p>{comic.title}</p>
-                <p>{comic.description}</p>
+                <h2>{comic.title}</h2>
+                <div className="comic-desc">
+                  {/* <p>{comic.description}</p> */}
+                </div>
               </div>
             </div>
           );

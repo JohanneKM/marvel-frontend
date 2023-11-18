@@ -73,14 +73,71 @@ const Characters = () => {
     <p>Loading...</p>
   ) : (
     <div className="container">
-      <input
-        placeholder="Search"
-        type="text"
-        value={name}
-        onChange={(event) => {
-          setName(event.target.value);
-        }}
+      {/* <img
+        className="background-image"
+        src="../src/assets/img/background.png"
+        alt="background"
       />
+      <img
+        className="background-image"
+        src="../src/assets/img/background.png"
+        alt="background"
+      />
+      <img
+        className="background-image"
+        src="../src/assets/img/background.png"
+        alt="background"
+      />
+
+      <img
+        className="background-image"
+        src="../src/assets/img/background.png"
+        alt="background"
+      />
+
+      <img
+        className="background-image"
+        src="../src/assets/img/background.png"
+        alt="background"
+      />
+
+      <img
+        className="background-image"
+        src="../src/assets/img/background.png"
+        alt="background"
+      />
+
+      <img
+        className="background-image"
+        src="../src/assets/img/background.png"
+        alt="background"
+      />
+
+      <img
+        className="background-image"
+        src="../src/assets/img/background.png"
+        alt="background"
+      />
+
+      <img
+        className="background-image"
+        src="../src/assets/img/background.png"
+        alt="background"
+      /> */}
+
+      <section className="searchbar-section">
+        <div className="searchbar">
+          <input
+            className="search-bar"
+            placeholder="Search for your favourite character"
+            type="text"
+            value={name}
+            onChange={(event) => {
+              setName(event.target.value);
+            }}
+          />
+        </div>
+      </section>
       <Pagination
         nbPages={nbPages}
         currentPage={currentPage}
@@ -106,6 +163,8 @@ const Characters = () => {
                 state={{
                   comicsTab: comicsTab,
                   characterID: character._id,
+                  characterName: character.name,
+                  characterDesc: character.description,
                 }}
               >
                 <div className="one-character">
@@ -116,7 +175,8 @@ const Characters = () => {
 
                   <div className="one-character-text">
                     <h2>{character.name}</h2>
-                    <p> {addEllipsis(character.description, 50)}</p>
+
+                    {/* <p> {addEllipsis(character.description, 50)}</p> */}
                   </div>
                 </div>
               </Link>

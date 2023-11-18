@@ -12,7 +12,7 @@ const Pagination = ({ nbPages, currentPage, setCurrentPage }) => {
     if (currentPage !== 1) setCurrentPage(currentPage - 1);
   };
   return (
-    <nav>
+    <nav className="pagination">
       <ul className="pagination justify-content-center">
         <li className="page-item">
           <a className="page-link" onClick={goToPrevPage} href="#">

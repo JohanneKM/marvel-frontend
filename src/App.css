@@ -1,16 +1,16 @@
-@import url("https://fonts.googleapis.com/css2?family=Titillium+Web&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300");
 body {
-  font-family: "Titillium Web", sans-serif;
+  font-family: "Noto Sans", sans-serif;
 }
 
 /* ---- GENERAL ----- */
 
 .container {
-  /* border: red solid 1px; */
-  background-color: #eeeeee;
+  border: green solid 1px;
+  background-color: #030714;
   width: 1200px;
   margin: 0 auto;
-  margin-top: 150px;
+  margin-top: 48px;
 }
 
 img {
@@ -20,6 +20,13 @@ img {
 a {
   text-decoration: none;
   color: black;
+}
+
+.background-image {
+  width: 1200px;
+  height: 925px;
+  object-fit: cover;
+  position: relative;
 }
 
 /* ---- HEADER ----- */
@@ -32,10 +39,28 @@ a {
   top: 0;
   border: red solid 1px;
   width: 1200px;
-  height: 150px;
-  background-color: white;
+  height: 100px;
+  background-color: #030714;
+  z-index: 1;
 }
 
+.container-header img {
+  width: 150px;
+}
+.menu {
+  display: flex;
+  gap: 20px;
+}
+.menu button {
+  background-color: transparent;
+  color: white;
+  border: none;
+  font-size: 16px;
+}
+
+.menu button:hover {
+  text-decoration: underline;
+}
 /* ---- CHARACTERS ----- */
 .container-characters {
   border: blue solid 1px;
@@ -45,16 +70,19 @@ a {
   justify-content: center;
   align-items: center;
   gap: 20px;
+  /* position: absolute;
+  top: 400px; */
+  width: 1200px;
 }
 
 .one-character {
-  border: green solid 1px;
+  border: white solid 1px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   width: 190px;
-  height: 360px;
+  height: 275px;
   background-color: black;
   border-radius: 10px;
   transition: transform 0.1s;
@@ -64,12 +92,12 @@ a {
   -ms-transform: scale(1.1); /* IE 9 */
   -webkit-transform: scale(1.1); /* Safari 3-8 */
   transform: scale(1.1);
-  background-color: red;
+  background-color: #071541;
 }
 
 .one-character-text {
   flex: 1;
-  /* border: red solid 1px; */
+  border: red solid 1px;
   width: 100%;
   height: 100%;
 
@@ -78,6 +106,12 @@ a {
   flex-direction: column;
   justify-content: space-around;
   padding: 15px;
+  overflow-x: scroll hidden;
+}
+
+.one-character-text p {
+  /* overflow-x: scroll hidden; */
+  /* border: red solid 1px; */
 }
 
 .one-character-text:hover {
@@ -85,7 +119,7 @@ a {
 }
 
 .one-character img {
-  flex: 1;
+  flex: 5;
   border: purple solid 1px;
   width: 100%;
   height: 60%;
@@ -95,10 +129,11 @@ a {
 
 h2 {
   font-weight: bold;
+  font-size: 13px;
 }
 
 .one-character p {
-  font-size: 15px;
+  font-size: 12px;
 }
 
 /* ---- CHARACTERS COMICS ----- */
@@ -107,48 +142,102 @@ h2 {
   width: 300px;
   height: 450px;
   border-radius: 10px;
+  border: white solid 1px;
+}
+
+.characterComics-left p {
+  color: white;
+  margin-top: 20px;
+  width: 500px;
 }
 
 .flex-parent {
   display: flex;
   padding: 50px;
-  gap: 100px;
+  gap: 50px;
+  /* position: absolute;
+  top: 100px; */
+  width: 1200px;
+  background-color: black;
 }
 
 .characterComics-right {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 15px;
-}
-
-.characterComics-right img {
-  width: 100%;
-  border-radius: 10px;
-}
-
-.one-characterComics {
+  /* display: flex; */
+  /* flex-wrap: wrap; */
+  /* gap: 15px; */
   border: red solid 1px;
+  width: 800px;
   display: flex;
   flex-direction: column;
-  gap: 15px;
-  width: 150px;
-  border-radius: 10px;
 }
 
-.title {
+/* .characterComics-right p {
+  color: white;
+  border: orange 1px solid;
+} */
+
+/* .characterComics-right img {
+  border-radius: 10px;
+} */
+
+.one-characterComics {
+  border: blue solid 1px;
   display: flex;
+  width: calc(100% / 3 - 45px);
+  gap: 15px;
+  background-color: lightcoral;
+  overflow: hidden;
+  flex-shrink: 0;
+
+  /* display: flex;
+  flex-direction: column;
+  gap: 15px;
+
+  border-radius: 10px;
+  background-color: black;
+  height: 300px;
+  width: 200px; */
 }
+
+/* 
+.one-characterComics img {
+  height: 75%;
+} */
+
+/* .title {
+  display: flex;
+  height: 25%;
+} */
 
 .one-characterComics p {
-  display: block;
-  overflow: scroll;
+  /* overflow: scroll;
+  padding-left: 10px; */
 
-  padding-left: 10px;
-
-  border: blue solid 1px;
-  height: 75px;
-  padding: 5px;
+  /* border: blue solid 1px; */
+  /* padding: 5px;
   text-align: center;
+  color: white; */
+}
+
+h1 {
+  /* position: absolute;
+  top: 200px; */
+  color: white;
+  /* border: orange 1px solid; */
+  flex: 1;
+}
+
+h2 {
+  /* border: brown solid 1px; */
+  flex: 2;
+  color: white;
+}
+.comics {
+  display: flex;
+  gap: 20px;
+  overflow: scroll hidden;
+  border: yellowgreen solid 1px;
+  flex: 5;
 }
 
 /* ---- PAGINATION ----- */
@@ -179,19 +268,81 @@ nav li:hover:not(.active) {
 }
 
 nav li a:hover:not(.active) {
-  /* color: white; */
+  color: white;
 }
 
 .active {
-  border: red solid 1px;
-  background-color: red;
+  border: white solid 1px;
+  background-color: white;
 }
 
 .active a {
-  color: white;
+  color: darkblue;
 }
 
 nav img {
   height: 25px;
   width: 25px;
+}
+
+/* .pagination {
+  position: absolute;
+  top: 150px;
+} */
+
+a {
+  color: white;
+}
+
+/* ---- SEARCH BAR ----- */
+
+.searchbar {
+  width: 300px;
+  height: 40px;
+  border-radius: 60px;
+  margin-left: 50px;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  padding: 10px;
+  background-color: #353e59;
+  display: flex;
+}
+
+.searchbar input {
+  background-color: transparent;
+  flex: 1;
+  border: 0;
+  outline: none;
+  color: white;
+}
+
+::placeholder {
+  color: white;
+}
+
+.searchbar-section {
+  border: yellow solid 1px;
+  width: 1200px;
+  padding-left: 50px;
+  /* position: absolute;
+  top: 175px; */
+}
+
+/* ---- COMICS ----- */
+.comic-desc {
+  display: flex;
+  overflow: scroll hidden;
+}
+
+.container-comics {
+  border: blue solid 1px;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 20px;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  position: absolute;
+  top: 400px;
+  width: 1200px;
 }

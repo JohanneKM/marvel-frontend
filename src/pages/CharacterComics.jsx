@@ -4,9 +4,12 @@ import { useEffect, useState } from "react";
 
 const CharacterComics = () => {
   const location = useLocation();
-  const { comicsTab, characterID } = location.state;
+  const { comicsTab, characterID, characterName, characterDesc } =
+    location.state;
   // console.log(comicsTab);
   console.log(characterID);
+  console.log(characterName);
+  console.log(characterDesc);
 
   const [data, setData] = useState();
   const [isLoading, setIsLoading] = useState(true);
@@ -33,6 +36,7 @@ const CharacterComics = () => {
   ) : (
     <div className="container">
       <div className="flex-parent">
+        {/* <h1>{characterName}</h1> */}
         {/* {comicsTab.map((elem) => {
         return <p key={elem}>{elem}</p>;
       })} */}
@@ -44,19 +48,23 @@ const CharacterComics = () => {
         </div>
 
         <div className="characterComics-right">
-          {data.comics.map((comic, index) => {
-            return (
-              <div key={index} className="one-characterComics">
-                <img
-                  src={`${comic.thumbnail.path}/portrait_incredible.${comic.thumbnail.extension}`}
-                  alt="comic"
-                />
-                <div className="title">
-                  <p>{comic.title}</p>
+          <h1> {characterName}</h1>
+          <h2> {characterDesc}</h2>
+          <div className="comics">
+            {data.comics.map((comic, index) => {
+              return (
+                <div key={index} className="one-characterComics">
+                  {/* <img
+                    src={`${comic.thumbnail.path}/portrait_incredible.${comic.thumbnail.extension}`}
+                    alt="comic"
+                  /> */}
+                  {/* <div className="title">
+                      <p>{comic.title}</p>
+                    </div> */}
                 </div>
-              </div>
-            );
-          })}
+              );
+            })}
+          </div>
         </div>
       </div>
     </div>
