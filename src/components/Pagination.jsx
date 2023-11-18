@@ -2,6 +2,7 @@ import { useState } from "react";
 
 const Pagination = ({ nbPages, currentPage, setCurrentPage }) => {
   const pageNumbers = [...Array(16).keys()].slice(1);
+  console.log(currentPage);
 
   const goToNextPage = () => {
     if (currentPage !== nbPages) setCurrentPage(currentPage + 1);
@@ -15,13 +16,13 @@ const Pagination = ({ nbPages, currentPage, setCurrentPage }) => {
       <ul className="pagination justify-content-center">
         <li className="page-item">
           <a className="page-link" onClick={goToPrevPage} href="#">
-            Previous
+            <img src="../src/assets/img/previous.png" alt="previous" />
           </a>
         </li>
         {pageNumbers.map((pgNumber) => (
           <li
             key={pgNumber}
-            className={`page-item ${currentPage == pgNumber ? "active" : ""} `}
+            className={`${currentPage == pgNumber ? "active" : ""} `}
           >
             <a
               onClick={() => setCurrentPage(pgNumber)}
@@ -34,7 +35,7 @@ const Pagination = ({ nbPages, currentPage, setCurrentPage }) => {
         ))}
         <li className="page-item">
           <a className="page-link" onClick={goToNextPage} href="#">
-            Next
+            <img src="../src/assets/img/next.png" alt="next" />
           </a>
         </li>
       </ul>

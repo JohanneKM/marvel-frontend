@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import Pagination from "../components/Pagination";
 
 const Comics = () => {
   const [data, setData] = useState();
@@ -38,6 +39,7 @@ const Comics = () => {
           setTitle(event.target.value);
         }}
       />
+
       <div className="container-characters">
         {data.results.map((comic) => {
           return (
