@@ -78,7 +78,7 @@ const Characters = () => {
   }, [name, currentPage, selectedCharacter]);
 
   return isLoading ? (
-    <p>Loading...</p>
+    <p className="loading">Loading...</p>
   ) : (
     <div className="container">
       <section className="searchbar-section">

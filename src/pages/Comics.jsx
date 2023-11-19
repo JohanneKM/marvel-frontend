@@ -11,15 +11,10 @@ const Comics = () => {
   const [tabComics, setTabComics] = useState();
   console.log(tabComics);
 
-  // for the description length
-  const addEllipsis = (text, maxLength) => {
-    return text.length > maxLength ? text.slice(0, maxLength) + "..." : text;
-  };
-
   // for the pagination
-  const [currentPage, setCurrentPage] = useState(1);
-  console.log(currentPage);
-  const [resultsPerPage] = useState(100);
+  const [currentPageComics, setCurrentPageComics] = useState(1);
+  console.log(currentPageComics);
+  const [resultsPerPageComics] = useState(100);
   const nbPages = Math.ceil(1493 / resultsPerPage);
   console.log("nbPages ===>", nbPages);
   let skip = 0;
@@ -50,52 +45,11 @@ const Comics = () => {
     <p>Loading...</p>
   ) : (
     <div className="container">
-      {/* <img
-        className="background-image"
-        src="../src/assets/img/background.png"
-        alt="background"
-      />
+      {/* 
 
-      <img
-        className="background-image"
-        src="../src/assets/img/background.png"
-        alt="background"
-      />
-      <img
-        className="background-image"
-        src="../src/assets/img/background.png"
-        alt="background"
-      />
-      <img
-        className="background-image"
-        src="../src/assets/img/background.png"
-        alt="background"
-      />
-      <img
-        className="background-image"
-        src="../src/assets/img/background.png"
-        alt="background"
-      />
-      <img
-        className="background-image"
-        src="../src/assets/img/background.png"
-        alt="background"
-      />
-      <img
-        className="background-image"
-        src="../src/assets/img/background.png"
-        alt="background"
-      />
-      <img
-        className="background-image"
-        src="../src/assets/img/background.png"
-        alt="background"
-      />
-      <img
-        className="background-image"
-        src="../src/assets/img/background.png"
-        alt="background"
-      />
+      
+    
+      
 
       <input
         placeholder="Search"
@@ -125,11 +79,6 @@ const Comics = () => {
           );
         })}
       </div>
-      <Pagination
-        nbPages={nbPages}
-        currentPage={currentPage}
-        setCurrentPage={setCurrentPage}
-      />
     </div>
   );
 };

@@ -32,9 +32,10 @@ a {
 /* ---- HEADER ----- */
 .container-header {
   display: flex;
-  justify-content: space-around;
+  /* justify-content: space-around; */
   align-items: center;
-  padding: 20px;
+  padding-top: 20px;
+  padding-bottom: 20px;
   position: fixed;
   top: 0;
   /* border: red solid 1px; */
@@ -42,6 +43,7 @@ a {
   height: 100px;
   background-color: #030714;
   z-index: 1;
+  padding-left: 115px;
 }
 
 .container-header img {
@@ -50,6 +52,7 @@ a {
 .menu {
   display: flex;
   gap: 20px;
+  padding-left: 540px;
 }
 .menu button {
   background-color: transparent;
@@ -166,7 +169,7 @@ h2 {
   top: 100px; */
   width: 1200px;
   /* background-color: black; */
-  border: blue solid 1px;
+  /* border: blue solid 1px; */
   padding-left: 20px;
   padding-right: 20px;
   padding-bottom: 500px;
@@ -221,10 +224,12 @@ h2 {
 
 .title {
   padding: 10px;
+  text-align: center;
 }
 
 .title p {
   color: white;
+  font-size: 12px;
 }
 
 /* .one-characterComics p {
@@ -322,7 +327,7 @@ a {
 
 .searchbar {
   /* border: red solid 1px; */
-  width: 300px;
+  width: 225px;
   height: 40px;
   border-radius: 60px;
   margin-left: 30px;
@@ -352,10 +357,10 @@ a {
 }
 
 .searchbar-section {
-  border: yellow solid 1px;
+  /* border: yellow solid 1px; */
   width: 1200px;
-  display: flex;
-  justify-content: center;
+  padding-left: 70px;
+  padding-top: 20px;
 
   /* position: absolute;
   top: 175px; */
@@ -368,17 +373,20 @@ a {
 }
 
 .container-comics {
-  border: blue solid 1px;
+  /* border: blue solid 1px; */
   /* background-color: black; */
   display: flex;
   flex-wrap: wrap;
-  padding: 20px;
+  padding-left: 20px;
+  padding-right: 20px;
   justify-content: center;
   align-items: center;
   gap: 20px;
 
   top: 400px;
   width: 1200px;
+  padding-top: 100px;
+  padding-bottom: 50px;
 }
 
 .one-character-text h2 {
