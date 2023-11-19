@@ -115,15 +115,6 @@ a {
   align-items: center;
 }
 
-.one-character-text p {
-  /* overflow-x: scroll hidden; */
-  /* border: red solid 1px; */
-}
-
-.one-character-text:hover {
-  /* background-color: red; */
-}
-
 .one-character img {
   flex: 5;
   /* border: purple solid 1px; */
