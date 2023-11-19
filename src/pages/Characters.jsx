@@ -78,7 +78,7 @@ const Characters = () => {
     <p>Loading...</p>
   ) : (
     <div className="container">
-      <img
+      {/* <img
         className="img-background"
         src="../src/assets/img/background.jpg"
         alt="background"
@@ -112,7 +112,12 @@ const Characters = () => {
         className="img-background"
         src="../src/assets/img/background.jpg"
         alt="background"
-      />
+      /> */}
+
+      {/* <img
+        src="https://img.freepik.com/free-vector/realistic-colorful-galaxy-background_23-2148965681.jpg?size=626&ext=jpg&ga=GA1.1.1880011253.1700352000&semt=ais"
+        alt="test"
+      /> */}
 
       <section className="searchbar-section">
         <div className="searchbar">

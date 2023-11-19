@@ -1,5 +1,6 @@
 import "./App.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import background from "../src/assets/img/background.jpg";
 
 // Pages
 import Home from "./pages/Home";
@@ -12,7 +13,13 @@ import Header from "./components/Header";
 
 function App() {
   return (
-    <>
+    <div
+      className="container"
+      style={{
+        backgroundImage: `url("https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Milky_Way_IR_Spitzer.jpg/440px-Milky_Way_IR_Spitzer.jpg")`,
+        width: `1200px`,
+      }}
+    >
       <Router>
         <Header />
         <Routes>
@@ -22,7 +29,7 @@ function App() {
           <Route path="/comics" element={<Comics />}></Route>
         </Routes>
       </Router>
-    </>
+    </div>
   );
 }
 
