@@ -11,20 +11,6 @@ const Comics = () => {
   const [tabComics, setTabComics] = useState();
   console.log(tabComics);
 
-  // for the pagination
-  const [currentPageComics, setCurrentPageComics] = useState(1);
-  console.log(currentPageComics);
-  const [resultsPerPageComics] = useState(100);
-  const nbPages = Math.ceil(1493 / resultsPerPage);
-  console.log("nbPages ===>", nbPages);
-  let skip = 0;
-  if (name.length !== 0) {
-    skip = 0;
-  } else {
-    skip = (currentPage - 1) * resultsPerPage;
-  }
-  console.log("skip ==>", skip);
-
   useEffect(() => {
     const fetchData = async () => {
       try {
