@@ -16,6 +16,20 @@ const Comics = () => {
     return text.length > maxLength ? text.slice(0, maxLength) + "..." : text;
   };
 
+  // for the pagination
+  const [currentPage, setCurrentPage] = useState(1);
+  console.log(currentPage);
+  const [resultsPerPage] = useState(100);
+  const nbPages = Math.ceil(1493 / resultsPerPage);
+  console.log("nbPages ===>", nbPages);
+  let skip = 0;
+  if (name.length !== 0) {
+    skip = 0;
+  } else {
+    skip = (currentPage - 1) * resultsPerPage;
+  }
+  console.log("skip ==>", skip);
+
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -111,6 +125,11 @@ const Comics = () => {
           );
         })}
       </div>
+      <Pagination
+        nbPages={nbPages}
+        currentPage={currentPage}
+        setCurrentPage={setCurrentPage}
+      />
     </div>
   );
 };

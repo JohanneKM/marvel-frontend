@@ -59,6 +59,9 @@ const Characters = () => {
     return text.length > maxLength ? text.slice(0, maxLength) + "..." : text;
   };
 
+  // for images not available
+  let checkURL = "";
+
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -78,47 +81,6 @@ const Characters = () => {
     <p>Loading...</p>
   ) : (
     <div className="container">
-      {/* <img
-        className="img-background"
-        src="../src/assets/img/background.jpg"
-        alt="background"
-      />
-      <img
-        className="img-background"
-        src="../src/assets/img/background.jpg"
-        alt="background"
-      />
-      <img
-        className="img-background"
-        src="../src/assets/img/background.jpg"
-        alt="background"
-      />
-      <img
-        className="img-background"
-        src="../src/assets/img/background.jpg"
-        alt="background"
-      />
-      <img
-        className="img-background"
-        src="../src/assets/img/background.jpg"
-        alt="background"
-      />
-      <img
-        className="img-background"
-        src="../src/assets/img/background.jpg"
-        alt="background"
-      />
-      <img
-        className="img-background"
-        src="../src/assets/img/background.jpg"
-        alt="background"
-      /> */}
-
-      {/* <img
-        src="https://img.freepik.com/free-vector/realistic-colorful-galaxy-background_23-2148965681.jpg?size=626&ext=jpg&ga=GA1.1.1880011253.1700352000&semt=ais"
-        alt="test"
-      /> */}
-
       <section className="searchbar-section">
         <div className="searchbar">
           <input
@@ -158,10 +120,18 @@ const Characters = () => {
                 }}
               >
                 <div className="one-character">
-                  <img
-                    src={`${character.thumbnail.path}/portrait_xlarge.${character.thumbnail.extension}`}
-                    alt=""
-                  />
+                  {character.thumbnail.path.substring(44) ===
+                  "image_not_available" ? (
+                    <img
+                      src="../src/assets/img/character-not-available.jpg"
+                      alt="replacement"
+                    />
+                  ) : (
+                    <img
+                      src={`${character.thumbnail.path}/portrait_uncanny.${character.thumbnail.extension}`}
+                      alt=""
+                    />
+                  )}
 
                   <div className="one-character-text">
                     <h2>{character.name}</h2>

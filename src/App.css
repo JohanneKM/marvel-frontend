@@ -13,9 +13,9 @@ body {
   margin-top: 100px;
 }
 
-img {
+/* img {
   width: 100px;
-}
+} */
 
 a {
   text-decoration: none;
@@ -81,7 +81,7 @@ a {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 190px;
+  width: 180px;
   height: 275px;
   background-color: black;
   border-radius: 10px;
@@ -107,6 +107,9 @@ a {
   justify-content: space-around;
   padding: 15px;
   overflow-x: scroll hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .one-character-text p {
@@ -121,10 +124,13 @@ a {
 .one-character img {
   flex: 5;
   /* border: purple solid 1px; */
-  width: 100%;
-  height: 60%;
+  /* width: 188px; */
+  /* height: 60%; */
+  /* object-fit: cover; */
+  border-radius: 10px 10px 0px 0px;
+  width: 178px;
+  height: 210px;
   object-fit: cover;
-  border-radius: 10px;
 }
 
 h2 {
@@ -143,6 +149,7 @@ h2 {
   height: 450px;
   border-radius: 10px;
   border: white solid 1px;
+  margin-top: 50px;
 }
 
 .characterComics-left p {
@@ -153,22 +160,27 @@ h2 {
 
 .flex-parent {
   display: flex;
-  padding: 50px;
+  padding-top: 75px;
   gap: 50px;
   /* position: absolute;
   top: 100px; */
   width: 1200px;
   /* background-color: black; */
+  border: blue solid 1px;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-bottom: 500px;
 }
 
 .characterComics-right {
   /* display: flex; */
   /* flex-wrap: wrap; */
   /* gap: 15px; */
-  border: red solid 1px;
+  /* border: red solid 1px; */
   width: 800px;
   display: flex;
   flex-direction: column;
+  margin-top: 50px;
 }
 
 /* .characterComics-right p {
@@ -181,14 +193,15 @@ h2 {
 } */
 
 .one-characterComics {
-  border: blue solid 1px;
+  border: white solid 1px;
   display: flex;
-  width: 168px;
+  width: 170px;
   gap: 15px;
   overflow: hidden;
   flex-shrink: 0;
   flex-direction: column;
   background-color: black;
+  border-radius: 10px;
 
   /* display: flex;
   flex-direction: column;
@@ -224,24 +237,28 @@ h2 {
   color: white;
 } */
 
-h1 {
+.characterComics-right h1 {
   color: white;
-  border: orange 1px solid;
-  flex: 1;
+  /* border: orange 1px solid; */
+  flex: 0.5;
+  font-weight: bold;
+  font-size: 20px;
 }
 
-h2 {
+.characterComics-right h2 {
   /* border: brown solid 1px; */
-  flex: 1;
+  flex: 0.5;
   color: white;
   margin-bottom: 20px;
+  font-weight: bold;
+  font-size: 15px;
 }
 .comics {
   display: flex;
   gap: 20px;
   overflow: scroll hidden;
-  border: yellowgreen solid 1px;
-  flex: 4;
+  /* border: yellowgreen solid 1px; */
+  flex: 2;
 }
 
 /* ---- PAGINATION ----- */
@@ -290,13 +307,12 @@ nav img {
   width: 25px;
 }
 
-/* .pagination {
-  position: absolute;
-  top: 3100px;
-  left: 100px;
-
-  border: green solid 1px;
-} */
+.pagination {
+  display: flex;
+  justify-content: center;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
 
 a {
   color: white;
@@ -363,4 +379,8 @@ a {
 
   top: 400px;
   width: 1200px;
+}
+
+.one-character-text h2 {
+  text-align: center;
 }

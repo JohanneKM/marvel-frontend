@@ -1,5 +1,3 @@
-import { useState } from "react";
-
 const Pagination = ({ nbPages, currentPage, setCurrentPage }) => {
   const pageNumbers = [...Array(16).keys()].slice(1);
   console.log(currentPage);
